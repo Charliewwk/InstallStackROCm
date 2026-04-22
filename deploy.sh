@@ -357,7 +357,11 @@ services:
       - /etc/localtime:/etc/localtime:ro
     restart: always
     networks:
-      - cpu_backend_net
+      cpu_backend_net:
+        aliases:
+          - ${ODOO_HOST}
+          - ${DOCS_HOST}
+          - ${CLAW_HOST}
 
 networks:
   cpu_backend_net:
